@@ -6,7 +6,7 @@ services:
     entrypoint: .docker/entrypoint.sh
     container_name: prismaapi-app
     ports:
-      - "3000:3000"
+      - "3070:3070"
       - "5555:5555"
     volumes:
       - .:/home/node/app

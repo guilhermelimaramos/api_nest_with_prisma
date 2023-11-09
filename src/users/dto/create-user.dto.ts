@@ -7,8 +7,8 @@ export class CreateUserDto {
 
   @IsString()
   @IsNotEmpty()
-  password: string;
+  name: string;
 
   @IsBoolean()
-  name: string;
+  admin: boolean;
 }
