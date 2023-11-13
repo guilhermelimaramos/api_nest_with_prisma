@@ -3,6 +3,8 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { UnauthorizedInterceptor } from './common/errors/interceptors/unauthorized.interceptor';
 import { NotFoundInterceptor } from './common/errors/interceptors/notfound.interceptor';
+import { DatabaseInterceptor } from './common/errors/interceptors/database.interceptor';
+import { ConflictInterceptor } from './common/errors/interceptors/conflict.interceptor';
 // import { HttpExceptionsFilterTsFilter } from './common/filters/http-exceptions.filter';
 
 async function bootstrap() {
@@ -15,6 +17,8 @@ async function bootstrap() {
     }),
   );
   // app.useGlobalFilters(new HttpExceptionsFilterTsFilter());
+  app.useGlobalInterceptors(new ConflictInterceptor());
+  app.useGlobalInterceptors(new DatabaseInterceptor());
   app.useGlobalInterceptors(new UnauthorizedInterceptor());
   app.useGlobalInterceptors(new NotFoundInterceptor());
   await app.listen(3070);

@@ -5,8 +5,7 @@ import {
   CallHandler,
   ConflictException,
 } from '@nestjs/common';
-import { catchError } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 import { ConflictError } from '../types/ConflictError';
 
 @Injectable()
